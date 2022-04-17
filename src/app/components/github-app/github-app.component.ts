@@ -17,9 +17,9 @@ export class GithubAppComponent implements OnInit {
   display: any =true;
  
   constructor(private profileService:UserService) { 
-    
+
     this.profileService.getUserInfo().subscribe(info => {
-      console.log("repos here" + info);
+      console.log("repos.3" + info);
       this.info = info;
     });
 
