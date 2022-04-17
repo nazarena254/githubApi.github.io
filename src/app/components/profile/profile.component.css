@@ -3,6 +3,7 @@
 }
 .body1{
     background-image: url("../../../assets/images/github.jpg");
+     background-attachment: fixed;
      background-repeat: no-repeat;
      background-size: cover;
      height: 630px;

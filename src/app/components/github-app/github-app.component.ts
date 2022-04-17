@@ -17,6 +17,7 @@ export class GithubAppComponent implements OnInit {
   display: any =true;
  
   constructor(private profileService:UserService) { 
+    
     this.profileService.getUserInfo().subscribe(info => {
       console.log("repos here" + info);
       this.info = info;
@@ -39,12 +40,12 @@ export class GithubAppComponent implements OnInit {
     });
 
     this.profileService.getRepos(this.username).subscribe((repos) => {
-      console.log("repos here" + repos);
+      console.log("repos.1" + repos);
       this.repos = repos;
     });
 
     this.profileService.getProfileInfo().subscribe((info) => {
-      console.log("repos here" + info);
+      console.log("repos.2" + info);
       this.info = info;
     });
   }

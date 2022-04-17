@@ -1,17 +1,10 @@
- <div class="container">
-     <div class="my-nav">
-        <nav class="navbar navbar-dark bg-dark navbar-expand-sm" >
-            <a href="/" class="navbar-brand"  style="color: #fcf9f9;
-             font-weight: bolder; font-size: 24px;">GITHUB</a>
-           <li><a href="profile" class="navbar-link" style="color: #eeeaea; 
-           font-weight: bolder; font-size: 19px;" >HOMEPAGE</a></li>
-      </nav>
-     </div>
+<a name="github" ></a>
+ <div class="container search-body">
     <div class="row test">
         <div class="col">
              <div class="card">
                  <a name="search" ></a>
-                 <div class="card-header bd-secondary">
+                 <div class="card-header bg-secondary">
                     <h4>Search github user</h4>
                  </div>
                  <div class="card-body">
@@ -40,7 +33,7 @@
     <div class="row">
       <div class="col-md-4">
         <div class="mt-5 mx-auto">
-          <div class="card shadow">
+          <div class="card show-profile">
             <div class="card-title">
               <h4 style="text-align: center; padding-top: 15px; font-weight: bold; color: rgb(0, 110, 255);">User Profile</h4>
             </div> 
@@ -50,17 +43,11 @@
                   <img class="rounded-circle" alt="..." src="{{profile.avatar_url}}">
                 </a>
               </div>
-              <!-- <div class="text-center my-6">
+              <div class="text-center my-6">
                 <a href="#" class="d-block h5 mb-0">{{profile.login}}</a><br>
                 <span class="d-block text-sm text-mute">{{profile.bio}}</span>
                 <span class="d-block text-sm text-muted">{{profile.email}}</span>
-              </div> -->
-
-               <!-- <div class="text-center my-6">
-                <a href="#" class="d-block h5 mb-0">{{profile.login}}</a><br>
-                <span class="d-block text-sm text-mute">{{profile.bio}}</span>
-                <span class="d-block text-sm text-muted">{{profile.email}}</span>
-              </div> -->
+              </div>
           <br><div class="d-flex">
                   <div class="col-4 text-center">
                     <span class="btn btn-primary btn-sm">{{profile.public_repos}} Repos</span>
@@ -81,11 +68,17 @@
         <br></div>
 
       </div>
-     <!-- End of profile card for searched username ro -->
+     <!-- End of profile card for searched username -->
 
       <div class="col-md-8 new-users" style="color: rgb(48, 47, 47);">       
           <div class="row"  >
-            <div class="col-md-4 card" *ngFor="let repo of repos"  >
+            <div>
+              <div class="mt-8 text-center" *ngIf="repos"><br>
+                <a href="{{profile.html_url}}" class="btn btn-primary btn-sm repo-btn" target="_blank">View {{profile.login}} Repos</a>
+                <!-- href="{{repos.html_url}}"  -->
+               <br></div>
+            </div>
+           <div class="col-md-4 card" *ngFor="let repo of repos"  >
               <a href="{{repo.html_url}}" class="github-card" data-github="Nexmo/nexmo-ruby">
                 <h4>{{repo.name}}</h4>
                 <p style="color: black;" >{{repo.description}}</p>
@@ -94,10 +87,10 @@
             </div>
           </div>
         
-          <div class="mt-8 text-center" *ngIf="repos"><br>
-           <a href="{{profile.html_url}}" class="btn btn-primary" target="_blank">See all repos</a>
+          <!-- <div class="mt-8 text-center" *ngIf="repos"><br>
+           <a href="{{profile.html_url}}" class="btn btn-primary" target="_blank">See all repos</a> -->
            <!-- href="{{repos.html_url}}"  -->
-          <br></div>
+          <!-- <br></div> -->
       </div>
       <!-- End of repos info for searched username -->
 
