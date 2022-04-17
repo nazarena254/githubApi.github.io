@@ -1,0 +1,28 @@
+.img{
+    width: auto;
+}
+.body1{
+    background-image: url("../../../assets/images/github.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     height: 630px;
+     width: 1250px;
+}
+.heading2{
+    margin-top: 190px;
+    margin-bottom: 70px;
+    margin-left: 40px;
+    color: beige;
+}
+.heading3{
+    margin-bottom: 70px;
+    margin-left:40px ;
+    color: beige;
+}
+.btn1{
+    width: 120px;
+    margin-left: 40px; 
+}
+.logo{
+    padding-left: 40px;
+}

@@ -1,0 +1,166 @@
+ <div class="container">
+     <div class="my-nav">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-sm" >
+            <a href="/" class="navbar-brand"  style="color: #fcf9f9;
+             font-weight: bolder; font-size: 24px;">GITHUB</a>
+           <li><a href="profile" class="navbar-link" style="color: #eeeaea; 
+           font-weight: bolder; font-size: 19px;" >HOMEPAGE</a></li>
+      </nav>
+     </div>
+    <div class="row test">
+        <div class="col">
+             <div class="card">
+                 <a name="search" ></a>
+                 <div class="card-header bd-secondary">
+                    <h4>Search github user</h4>
+                 </div>
+                 <div class="card-body">
+                     <form class="row">
+                         <div class="form-group col-md-10">
+                             <input type="search" [(ngModel)]="username" id="searchQueryInput"
+                             name="searchQueryInput" placeholder="Search users" 
+                             (keyup)="findUser()" value="" class="form-control">
+                         </div>
+                     </form>
+                     <div class="row">                        
+                         <h4>
+                             <br>Type any other user name to see their profile as well as repos
+                         </h4>
+                     </div>
+                 </div>
+             </div>
+             <div>
+                 <p><br></p>
+             </div>
+        </div> 
+    <!-- end of row1 -->
+
+    <!-- DISPLAY OTHER USERNAMES PROFILE THAT HAVE BEEN SEARCHED -->
+<div class="container" *ngIf="!display">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mt-5 mx-auto">
+          <div class="card shadow">
+            <div class="card-title">
+              <h4 style="text-align: center; padding-top: 15px; font-weight: bold; color: rgb(0, 110, 255);">User Profile</h4>
+            </div> 
+            <div class="card-body">
+              <div class="d-flex justify-content-center">
+                <a href="#" class="avatar avatar-xl ">
+                  <img class="rounded-circle" alt="..." src="{{profile.avatar_url}}">
+                </a>
+              </div>
+              <div class="text-center my-6">
+                <a href="#" class="d-block h5 mb-0">{{profile.login}}</a><br>
+                <span class="d-block text-sm text-mute">{{profile.bio}}</span>
+                <span class="d-block text-sm text-muted">{{profile.email}}</span>
+              </div>
+          <br><div class="d-flex">
+                  <div class="col-4 text-center">
+                    <span class="btn btn-primary btn-sm">{{profile.public_repos}} Repos</span>
+                  </div>
+                  <div class="col-4 text-center">
+                    <span class="btn btn-primary btn-sm">{{profile.followers}} Followers</span>
+                  </div>
+                  <div class="col-4 text-center">
+                    <span class="btn btn-primary btn-sm">Following{{profile.following}}</span>
+                  </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <div class="mt-8 text-center"><br>
+          <a href="{{profile.html_url}}" class="btn btn-primary" target="_blank">See profile in github </a>
+        <br></div>
+
+      </div>
+     <!-- End of profile card for searched username ro -->
+
+      <div class="col-md-8 new-users" style="color: rgb(48, 47, 47);">       
+          <div class="row"  >
+            <div class="col-md-4 card" *ngFor="let repo of repos"  >
+              <a href="{{repo.html_url}}" class="github-card" data-github="Nexmo/nexmo-ruby">
+                <h4>{{repo.name}}</h4>
+                <p style="color: black;" >{{repo.description}}</p>
+                <p style="color: black;" >{{repo.created_at | date}}</p>
+              </a>
+            </div>
+          </div>
+        
+          <div class="mt-8 text-center" *ngIf="repos"><br>
+           <a href="{{profile.html_url}}" class="btn btn-primary" target="_blank">See all repos</a>
+           <!-- href="{{repos.html_url}}"  -->
+          <br></div>
+      </div>
+      <!-- End of repos info for searched username -->
+
+    </div>
+  </div>
+  
+  <!-- DISPLAY MY ALREADY DECLARED PROFILE AS WELL AS REPOS -->
+  <div class="container" *ngIf="display">
+    <div class="row">
+      <div class="col-md-4 mt-5 mx-auto" *ngIf="info">
+       
+        <div class="card shadow" style="margin-top: 0px;">
+          <div class="card-title">
+            <h4 style="text-align: center; padding-top: 15px; font-weight: bold; color: rgb(0, 110, 255);">User Profile</h4>
+          </div>
+          <div class="card-body">
+            {{info.length}}
+            <div class="d-flex justify-content-center">
+              <a href="#" class="avatar avatar-xl ">
+                <img class="rounded-circle" alt="..." src="{{info.avatar_url}}">
+              </a>
+            </div>
+            <div class="text-center my-6">
+              <a href="#" class="d-block h5 mb-0">{{info.login}}</a> <br>           
+              <span class="d-block text-sm text-mute">{{info.bio}}</span>
+              <span class="d-block text-sm text-muted">{{info.email}}</span>
+            </div>
+        
+        <br><div class="d-flex">
+              <div class="col-4 text-center">
+                <span class="btn btn-primary btn-sm">{{info.public_repos}} Repos</span>
+              </div>
+              <div class="col-4 text-center">
+                <span class="btn btn-primary btn-sm">{{info.followers}} Followers</span>
+              </div>
+              <div class="col-4 text-center">
+                <span class="btn btn-primary btn-sm">Following {{info.following}}</span>
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of my profile card -->
+
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4 card" *ngFor="let repo of repos">
+            <a href="{{repo.html_url}}" class="github-card" data-github="Nexmo/nexmo-ruby">
+              <h4>{{repo.name}}</h4>
+              <p style="color: black;" >{{repo.description}}</p>
+              <p style="color: black;" >{{repo.created_at | date}}</p>
+  
+              <span class="github-card__meta">
+                <p  style="color: #0f0f0f;"> {{repo.language}} </p>
+              </span>
+             
+              <span class="github-card__meta">
+                <p style="color: black;" >{{repo.forks_count}}Forks </p>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- End of my repo info section -->
+
+    </div>
+  </div>
+
+</div>
+</div>
