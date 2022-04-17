@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: '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'
+  apiKey: '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'
 };
 
 /*
