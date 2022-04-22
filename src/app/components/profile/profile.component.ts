@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
         this.info = info;
       });
       this.RepositoryService.getUserRepos().subscribe(repos => {
-        console.log("repo" + repos);
+        console.log("repo.4" + repos);
         this.repos=repos;
       });
    }

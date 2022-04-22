@@ -9,12 +9,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GithubAppComponent } from './components/github-app/github-app.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { GithubDirective } from './directives/github.directive';
+import { GithubPipe } from './pipe/github.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubAppComponent,
-    ProfileComponent
+    ProfileComponent,
+    GithubDirective,
+    GithubPipe
   ],
   imports: [
     BrowserModule,

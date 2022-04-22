@@ -10,7 +10,7 @@
                  <div class="card-body">
                      <form class="row">
                          <div class="form-group col-md-10">
-                             <input type="search" [(ngModel)]="username" id="searchQueryInput"
+                             <input highlight type="search" [(ngModel)]="username" id="searchQueryInput"
                              name="searchQueryInput" placeholder="Type Username Here..." 
                              (keyup)="findUser()" value="" class="form-control">
                          </div>
@@ -78,7 +78,7 @@
                 <!-- href="{{repos.html_url}}"  -->
                <br></div>
             </div>
-           <div class="col-md-4 card" *ngFor="let repo of repos"  >
+           <div class="col-md-4 card mycard3" *ngFor="let repo of repos"  >
               <a href="{{repo.html_url}}" class="github-card" data-github="Nexmo/nexmo-ruby">
                 <h4>{{repo.name}}</h4>
                 <p style="color: black;" >{{repo.description}}</p>
@@ -132,7 +132,7 @@
 
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-4 card" *ngFor="let repo of repos">
+          <div class="col-md-4 card mycard3" *ngFor="let repo of repos">
             <a href="{{repo.html_url}}" class="github-card" data-github="Nexmo/nexmo-ruby">
               <h4>{{repo.name}}</h4>
               <p style="color: black;" >{{repo.description}}</p>
